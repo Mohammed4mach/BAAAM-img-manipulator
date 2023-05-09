@@ -1,2 +1,7 @@
 # BAAAM-img-manipulator
-Project for some image processing simple applications
+Project that make use of some image processing simple applications.
+
+## Preview
+
+![](assets/preview.gif)
+
