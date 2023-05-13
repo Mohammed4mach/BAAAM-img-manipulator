@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 #include "imgmanip.h"
 #include "QFileDialog"
+#include "unordered_map"
 
 using namespace std;
 
@@ -72,7 +73,7 @@ void MainWindow::on_histogram_ok_clicked()
 
 void MainWindow::on_smoothing_linear_ok_clicked()
 {
-    int kernel_size = (int) this->ui->kernel_size_input->currentText().at(0).unicode();
+    int kernel_size = (int) this->ui->kernel_size_input->currentText().at(0).unicode() - '0';
     // int kernel_size = this->ui->kernel_size_input->itemText()
 
     QPixmap pixmap = ImgManip::box_filter(this->img_in_path, kernel_size);
@@ -85,7 +86,7 @@ void MainWindow::on_smoothing_linear_ok_clicked()
 
 void MainWindow::on_smoothing_nonlinear_ok_clicked()
 {
-    int kernel_size = (int) this->ui->kernel_size_input->currentText().at(0).unicode();
+    int kernel_size = (int) this->ui->kernel_size_input->currentText().at(0).unicode() - '0';
 
     QPixmap pixmap = ImgManip::min_filter(this->img_in_path, kernel_size);
 
@@ -109,7 +110,15 @@ void MainWindow::on_sharpening_ok_clicked()
 
 void MainWindow::on_detection_ok_clicked()
 {
-    QPixmap pixmap = ImgManip::sobel_filter(this->img_in_path);
+    string detection_alg = this->ui->detection_filter_input->currentText().toStdString();
+
+    unordered_map<string, QPixmap (*)(string)> alg_func = {
+        {"Sobel Filter", & ImgManip::sobel_filter},
+        {"Canny Filter", & ImgManip::canny_threshold}
+    };
+
+    QPixmap pixmap = (* alg_func[detection_alg])(this->img_in_path);
+    // QPixmap pixmap = ImgManip::sobel_filter(this->img_in_path);
 
     pixmap = this->changePixmapScale(pixmap);
 

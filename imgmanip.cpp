@@ -204,7 +204,7 @@ QPixmap ImgManip::box_filter(string path_to_img, int kernel_size)
         printf("Could not open or find the image\n");
     }
 
-    // Apply a box filter with a kernel size of 5x5
+    // Apply a box filter
     Mat filteredImage = boxFilterAux(image, kernel_size);
 
     return getPixmap(filteredImage, QImage::Format_Indexed8);
@@ -265,8 +265,6 @@ QPixmap ImgManip::canny_threshold(string path_to_img)
             }
         }
     }
-
-    imshow("Output Image", edges);
 
     return getPixmap(edges, QImage::Format_Indexed8);
 }
@@ -403,4 +401,3 @@ double ImgManip::transmission_time(string path_to_img, int baud_rate)
     // Print the transmission time to the console
     return transmission_time;
 }
-

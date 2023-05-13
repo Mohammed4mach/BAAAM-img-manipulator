@@ -96,9 +96,9 @@ QGroupBox * {
           <property name="geometry">
            <rect>
             <x>0</x>
-            <y>-288</y>
-            <width>512</width>
-            <height>879</height>
+            <y>-240</y>
+            <width>415</width>
+            <height>817</height>
            </rect>
           </property>
           <layout class="QGridLayout" name="gridLayout_7">
@@ -281,27 +281,26 @@ QGroupBox * {
               <string/>
              </property>
              <layout class="QGridLayout" name="gridLayout_5">
-              <item row="2" column="0">
-               <widget class="QLabel" name="label_6">
-                <property name="text">
-                 <string>High Boost:</string>
+              <item row="2" column="2">
+               <widget class="QPushButton" name="sharpening_ok">
+                <property name="cursor">
+                 <cursorShape>PointingHandCursor</cursorShape>
                 </property>
-               </widget>
-              </item>
-              <item row="2" column="1">
-               <widget class="QDoubleSpinBox" name="high_boost_inout">
                 <property name="styleSheet">
-                 <string notr="true"/>
+                 <string notr="true">QPushButton {
+	background-color: #616264;
+	font-size: 18px;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Apply</string>
                 </property>
                </widget>
               </item>
-              <item row="0" column="0" colspan="2">
-               <widget class="QLabel" name="label_13">
+              <item row="1" column="0">
+               <widget class="QLabel" name="label_5">
                 <property name="text">
-                 <string>Sharpening Filters</string>
-                </property>
-                <property name="class" stdset="0">
-                 <string>group-header</string>
+                 <string>Laplacian:</string>
                 </property>
                </widget>
               </item>
@@ -315,26 +314,13 @@ QGroupBox * {
                 </property>
                </widget>
               </item>
-              <item row="1" column="0">
-               <widget class="QLabel" name="label_5">
+              <item row="0" column="0" colspan="2">
+               <widget class="QLabel" name="label_13">
                 <property name="text">
-                 <string>Laplacian:</string>
+                 <string>Sharpening Filters</string>
                 </property>
-               </widget>
-              </item>
-              <item row="3" column="2">
-               <widget class="QPushButton" name="sharpening_ok">
-                <property name="cursor">
-                 <cursorShape>PointingHandCursor</cursorShape>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">QPushButton {
-	background-color: #616264;
-	font-size: 18px;
-}</string>
-                </property>
-                <property name="text">
-                 <string>Apply</string>
+                <property name="class" stdset="0">
+                 <string>group-header</string>
                 </property>
                </widget>
               </item>
@@ -353,13 +339,6 @@ QGroupBox * {
               <string/>
              </property>
              <layout class="QGridLayout" name="gridLayout_6">
-              <item row="1" column="0">
-               <widget class="QLabel" name="label_9">
-                <property name="text">
-                 <string>Filter:</string>
-                </property>
-               </widget>
-              </item>
               <item row="0" column="0" colspan="3">
                <widget class="QLabel" name="label_14">
                 <property name="text">
@@ -370,32 +349,7 @@ QGroupBox * {
                 </property>
                </widget>
               </item>
-              <item row="1" column="1" colspan="2">
-               <widget class="QComboBox" name="detection_filter_input">
-                <item>
-                 <property name="text">
-                  <string>Sobel Filter</string>
-                 </property>
-                </item>
-               </widget>
-              </item>
-              <item row="2" column="0">
-               <widget class="QLabel" name="label_10">
-                <property name="text">
-                 <string>Type:</string>
-                </property>
-               </widget>
-              </item>
-              <item row="2" column="1" colspan="2">
-               <widget class="QComboBox" name="nonlinear_input_2">
-                <item>
-                 <property name="text">
-                  <string>Vertical</string>
-                 </property>
-                </item>
-               </widget>
-              </item>
-              <item row="3" column="2">
+              <item row="2" column="2">
                <widget class="QPushButton" name="detection_ok">
                 <property name="cursor">
                  <cursorShape>PointingHandCursor</cursorShape>
@@ -409,6 +363,27 @@ QGroupBox * {
                 <property name="text">
                  <string>Apply</string>
                 </property>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="QLabel" name="label_9">
+                <property name="text">
+                 <string>Filter:</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1" colspan="2">
+               <widget class="QComboBox" name="detection_filter_input">
+                <item>
+                 <property name="text">
+                  <string>Sobel Filter</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Canny Filter</string>
+                 </property>
+                </item>
                </widget>
               </item>
              </layout>
@@ -579,29 +554,7 @@ QGroupBox * {
              <item row="0" column="0">
               <widget class="QLabel" name="image_in">
                <property name="sizePolicy">
-                <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-                 <horstretch>0</horstretch>
-                 <verstretch>0</verstretch>
-                </sizepolicy>
-               </property>
-               <property name="maximumSize">
-                <size>
-                 <width>290</width>
-                 <height>275</height>
-                </size>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">margin-right: 10px;</string>
-               </property>
-               <property name="text">
-                <string/>
-               </property>
-              </widget>
-             </item>
-             <item row="0" column="1">
-              <widget class="QLabel" name="image_out">
-               <property name="sizePolicy">
-                <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                <sizepolicy hsizetype="Ignored" vsizetype="Ignored">
                  <horstretch>0</horstretch>
                  <verstretch>0</verstretch>
                 </sizepolicy>
@@ -612,11 +565,51 @@ QGroupBox * {
                  <height>275</height>
                 </size>
                </property>
+               <property name="maximumSize">
+                <size>
+                 <width>300</width>
+                 <height>285</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">margin-right: 10px;</string>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+               <property name="scaledContents">
+                <bool>true</bool>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="1">
+              <widget class="QLabel" name="image_out">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Ignored" vsizetype="Ignored">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>290</width>
+                 <height>275</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>300</width>
+                 <height>285</height>
+                </size>
+               </property>
                <property name="styleSheet">
                 <string notr="true">margin-left: 10px;</string>
                </property>
                <property name="text">
                 <string/>
+               </property>
+               <property name="scaledContents">
+                <bool>true</bool>
                </property>
               </widget>
              </item>
@@ -655,6 +648,9 @@ QGroupBox * {
             </property>
             <property name="text">
              <string/>
+            </property>
+            <property name="scaledContents">
+             <bool>true</bool>
             </property>
            </widget>
           </item>
