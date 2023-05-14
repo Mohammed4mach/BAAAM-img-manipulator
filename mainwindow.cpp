@@ -125,12 +125,31 @@ void MainWindow::on_detection_ok_clicked()
     this->ui->image_out->setPixmap(pixmap);
 }
 
+double MainWindow::calc_trans_time(int baud_rate, int multiplier = 1)
+{
+    double time = ImgManip::transmission_time(this->img_in_path, baud_rate);
+
+    return time * multiplier;
+}
 
 void MainWindow::on_baud_input_valueChanged(int value)
 {
+    unordered_map<string, int> channel_multiplier = {
+        {"Grayscale", 1},
+        {"RGB", 3}
+    };
+
     int baud_rate = this->ui->baud_input->value();
 
-    double time = ImgManip::transmission_time(this->img_in_path, baud_rate);
+    string channel = this->ui->trans_time_channel_input->currentText().toStdString();
+    int multiplier = channel_multiplier[channel];
+
+    double time = this->calc_trans_time(baud_rate, multiplier);
 
     this->ui->transmission_time_output->display(QString::number(time));
+}
+
+void MainWindow::on_trans_time_channel_input_currentTextChanged(const QString &arg1)
+{
+    on_baud_input_valueChanged(1);
 }

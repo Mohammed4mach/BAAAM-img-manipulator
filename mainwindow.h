@@ -33,7 +33,11 @@ private slots:
 
     void on_detection_ok_clicked();
 
+    double calc_trans_time(int baut_rate, int multiplier);
+
     void on_baud_input_valueChanged(int arg1);
+
+    void on_trans_time_channel_input_currentTextChanged(const QString &arg1);
 
 private:
     Ui::MainWindow *ui;
